@@ -28,7 +28,10 @@ export default function RemediationModal({
       if (selectedId === rephrasedQuestion.correctOptionId) {
         onAnswerCorrectly();
       } else {
-        onAnswerIncorrectly();
+        // Reset to lesson phase so the user can review before retrying
+        setPhase("lesson");
+        setSelectedId(null);
+        setShowResult(false);
       }
     }, 1200);
   }
