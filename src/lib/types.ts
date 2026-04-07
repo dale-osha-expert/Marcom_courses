@@ -46,6 +46,12 @@ export interface ExamState {
   showFeedback: boolean;
 }
 
+/** A single FAQ entry for a course */
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
+
 /** A full course definition */
 export interface Course {
   id: string;
@@ -61,4 +67,10 @@ export interface Course {
   lessons: Record<string, string>;
   /** Rephrased versions keyed by original question ID, shown after a wrong answer */
   rephrasedQuestions: Record<number, Question>;
+  /** Per-topic bullet-point summaries of key facts */
+  keyTakeaways: Record<string, string[]>;
+  /** FAQ items displayed on the results screen */
+  faq: FaqItem[];
+  /** Human-readable display names for topic keys */
+  topicDisplayNames?: Record<string, string>;
 }

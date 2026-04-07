@@ -195,6 +195,15 @@ export default function CoursePage() {
               <ResultsScreen
                 score={state.score}
                 totalQuestions={totalQuestions}
+                passingScore={course.passingScore}
+                courseTitle={course.title}
+                oshaRefs={course.oshaRefs}
+                questions={course.questions}
+                answeredCorrectly={state.answeredCorrectly}
+                lessons={course.lessons}
+                keyTakeaways={course.keyTakeaways}
+                faq={course.faq}
+                topicDisplayNames={course.topicDisplayNames}
                 onRestart={handleRestart}
               />
               <button

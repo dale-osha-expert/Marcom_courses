@@ -3,7 +3,7 @@
 // MARCOM ID: 368 | OSHA 1926 Subpart K (Electrical)
 // ---------------------------------------------------------------------------
 
-import { Course } from "../types";
+import { Course, FaqItem } from "../types";
 
 const questions: Course["questions"] = [
   // ── Electrical Hazards & OSHA Standards ──────────────────────────────────
@@ -325,6 +325,78 @@ const rephrasedQuestions: Course["rephrasedQuestions"] = {
   15: { id: 115, topic: "lockout-tagout", difficulty: "hard", oshaClause: "1926 Subpart C", questionText: "A second-shift worker finds a lockout device left by a first-shift worker who has already gone home. Equipment is urgently needed. The worker should:", options: [{ id: "a", text: "Remove the lock — the original worker is no longer present" }, { id: "b", text: "Ask the supervisor to remove the lock using their authority" }, { id: "c", text: "Follow the facility's established absent-worker procedure, which requires management authorization and verification that work is complete" }, { id: "d", text: "Cut the lock off to restore production" }], correctOptionId: "c" },
 };
 
+const topicDisplayNames: Record<string, string> = {
+  "electrical-hazards-osha": "Electrical Hazards & OSHA Standards",
+  "power-lines": "High Voltage Power Lines",
+  "tools-cords": "Tools, Extension Cords & Receptacles",
+  "grounding-gfci": "Grounding, Continuity & GFCIs",
+  "lockout-tagout": "Lock-Out / Tag-Out (LOTO)",
+};
+
+const keyTakeaways: Record<string, string[]> = {
+  "electrical-hazards-osha": [
+    "Electricity kills **100+ construction workers** per year; most incidents are preventable",
+    "OSHA **1926 Subpart K** governs all electrical safety in construction",
+    "Key regulations: 1926.403 (general), 1926.404 (wiring), 1926.405 (methods), 1926.416 (protection)",
+    "Injury severity depends on current amount, path through the body, and duration of contact",
+  ],
+  "power-lines": [
+    "**Always assume** overhead power lines are energized — even if reported as shut off",
+    "OSHA 1926.1408 requires determining the **voltage** before any nearby work begins",
+    "Minimum approach distance: **10 feet** for lines up to 50,000 volts",
+    "Use insulating barriers and qualified observers when working near power lines",
+  ],
+  "tools-cords": [
+    "**Inspect** every power tool for damage before use — cracked insulation, frayed cords, bent prongs",
+    "Damaged tools must be **removed from service** immediately and tagged",
+    "Extension cords used outdoors must be **rated for outdoor use**",
+    "Never remove or bypass the **third (grounding) prong** on a plug",
+  ],
+  "grounding-gfci": [
+    "Grounding provides a **safe path for fault current** so it doesn't pass through the worker",
+    "**GFCI** = Ground Fault Circuit Interrupter — cuts power within **1/40th of a second**",
+    "OSHA 1926.404 requires GFCI on all **120V, 15- and 20-amp temporary receptacles** on construction sites",
+    "Regularly test GFCIs and verify **ground continuity** — a broken ground wire provides no protection",
+  ],
+  "lockout-tagout": [
+    "**De-energize** all equipment before maintenance, servicing, or repair",
+    "Apply your **personal lock and tag** to the energy-isolating device",
+    "Always **verify zero energy** by attempting to operate the equipment after lockout",
+    "**Only the worker who applied the lock** is authorized to remove it",
+  ],
+};
+
+const faq: FaqItem[] = [
+  {
+    question: "What is the most common cause of electrical fatalities on construction sites?",
+    answer: "Contact with overhead power lines is one of the most frequent causes of electrical fatalities in construction. Workers operating cranes, scaffolding, or other tall equipment near energized lines are at greatest risk. OSHA 1926.1408 establishes minimum approach distances to reduce this hazard.",
+  },
+  {
+    question: "How often should GFCIs be tested on a construction site?",
+    answer: "OSHA recommends testing GFCIs **before each use** on construction sites. A GFCI that fails its test provides no ground fault protection and must be taken out of service immediately. Press the \"test\" button — the power should cut off instantly. Then press \"reset\" to restore power.",
+  },
+  {
+    question: "Can I use an indoor-rated extension cord outside if the weather is dry?",
+    answer: "No. OSHA 1926.405 requires that extension cords used outdoors or in wet/damp locations must be **rated for outdoor use**, regardless of current weather conditions. Indoor-rated cords lack the moisture resistance and insulation needed for outdoor environments.",
+  },
+  {
+    question: "What should I do if I find a damaged power tool on the job site?",
+    answer: "Under OSHA 1926.416(a), you must **remove the tool from service immediately**, tag it as defective, and report it to your supervisor. Never use a tool with cracked insulation, frayed cords, damaged housing, or missing grounding prongs — even for a quick task.",
+  },
+  {
+    question: "Who can remove a lockout/tagout device?",
+    answer: "**Only the worker who installed the device** is authorized to remove it. Removing someone else's lock or tag — even with supervisor permission — is prohibited under normal circumstances. If the original worker is unavailable, the facility's established absent-worker procedure must be followed, which requires management authorization and verification that work is complete.",
+  },
+  {
+    question: "What is the minimum safe distance from overhead power lines?",
+    answer: "For power lines up to **50,000 volts**, the minimum approach distance is **10 feet**. For higher voltages, the required distance increases. Under OSHA 1926.1408, the employer must first determine the voltage of nearby lines to establish the correct minimum approach distance before any work begins.",
+  },
+  {
+    question: "What does OSHA 1926 Subpart K cover?",
+    answer: "**Subpart K — Electrical** covers all electrical safety requirements for construction work. It includes general requirements (1926.403), wiring design and protection (1926.404), wiring methods and equipment (1926.405), and protection of employees (1926.416). It is the primary electrical safety standard for construction sites.",
+  },
+];
+
 export const electrocutionHazardsPart1Course: Course = {
   id: "368",
   slug: "con_368_int_en",
@@ -347,4 +419,7 @@ export const electrocutionHazardsPart1Course: Course = {
   questions,
   lessons,
   rephrasedQuestions,
+  keyTakeaways,
+  faq,
+  topicDisplayNames,
 };
