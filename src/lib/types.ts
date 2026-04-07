@@ -34,6 +34,7 @@ export interface RemediationPayload {
 
 /** Overall exam state managed by the page component */
 export interface ExamState {
+  introComplete: boolean;
   currentQuestionIndex: number;
   score: number;
   isRemediating: boolean;

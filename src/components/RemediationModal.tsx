@@ -69,7 +69,7 @@ export default function RemediationModal({
                           '<strong class="text-industrial-900">$1</strong>'
                         )
                         .replace(
-                          /(1910\.178\([a-z]\)\(\d+\))/g,
+                          /(\d{4}\.\d+(?:\([a-zA-Z]\)(?:\(\d+\))?)?)/g,
                           '<code class="bg-safety-orange/10 text-safety-orange px-1 rounded text-xs font-mono">$1</code>'
                         ),
                     }}

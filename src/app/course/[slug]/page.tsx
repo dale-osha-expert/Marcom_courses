@@ -9,9 +9,11 @@ import ProgressBar from "@/components/ProgressBar";
 import QuestionCard from "@/components/QuestionCard";
 import RemediationModal from "@/components/RemediationModal";
 import ResultsScreen from "@/components/ResultsScreen";
+import CourseIntro from "@/components/CourseIntro";
 
 function getInitialState(): ExamState {
   return {
+    introComplete: false,
     currentQuestionIndex: 0,
     score: 0,
     isRemediating: false,
@@ -123,6 +125,12 @@ export default function CoursePage() {
   }, []);
 
   // ── Restart exam ──────────────────────────────────────────────────────────
+  // ── Start quiz from intro ─────────────────────────────────────────────────
+  const handleStartQuiz = useCallback(() => {
+    setState((prev) => ({ ...prev, introComplete: true }));
+  }, []);
+
+  // ── Restart exam ──────────────────────────────────────────────────────────
   const handleRestart = useCallback(() => {
     setState(getInitialState());
   }, []);
@@ -180,7 +188,9 @@ export default function CoursePage() {
       {/* Content */}
       <div className="flex-1 flex items-start justify-center px-4 py-8">
         <div className="w-full max-w-2xl">
-          {state.isComplete ? (
+          {!state.introComplete ? (
+            <CourseIntro course={course} onStartQuiz={handleStartQuiz} />
+          ) : state.isComplete ? (
             <div className="space-y-4">
               <ResultsScreen
                 score={state.score}
