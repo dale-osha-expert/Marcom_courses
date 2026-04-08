@@ -3,6 +3,9 @@
 import { Course } from "@/lib/types";
 import { renderLesson } from "@/lib/renderLesson";
 import KeyTakeaways from "./KeyTakeaways";
+import StatCards from "./StatCards";
+import StepProcess from "./StepProcess";
+import WarningCallout from "./WarningCallout";
 
 interface CourseIntroProps {
   course: Course;
@@ -57,27 +60,42 @@ export default function CourseIntro({ course, onStartQuiz }: CourseIntroProps) {
       </div>
 
       {/* Lesson sections */}
-      {Object.entries(course.lessons).map(([topicKey, content]) => (
-        <div
-          key={topicKey}
-          className="bg-white rounded-2xl shadow-lg border border-industrial-100 p-6"
-        >
-          <div className="prose prose-sm max-w-none">
-            {content.split("\n\n").map((paragraph, i) => (
-              <p
-                key={i}
-                className="text-industrial-700 leading-relaxed mb-3"
-                dangerouslySetInnerHTML={{
-                  __html: renderLesson(paragraph),
-                }}
+      {Object.entries(course.lessons).map(([topicKey, content]) => {
+        const topicVisuals = course.visuals?.[topicKey];
+        return (
+          <div
+            key={topicKey}
+            className="bg-white rounded-2xl shadow-lg border border-industrial-100 p-6"
+          >
+            <div className="prose prose-sm max-w-none">
+              {content.split("\n\n").map((paragraph, i) => (
+                <p
+                  key={i}
+                  className="text-industrial-700 leading-relaxed mb-3"
+                  dangerouslySetInnerHTML={{
+                    __html: renderLesson(paragraph),
+                  }}
+                />
+              ))}
+            </div>
+            {topicVisuals?.stats && (
+              <StatCards stats={topicVisuals.stats} />
+            )}
+            {topicVisuals?.steps && (
+              <StepProcess
+                title={topicVisuals.steps.title}
+                items={topicVisuals.steps.items}
               />
-            ))}
+            )}
+            {topicVisuals?.warnings && (
+              <WarningCallout warnings={topicVisuals.warnings} />
+            )}
+            {course.keyTakeaways[topicKey] && (
+              <KeyTakeaways takeaways={course.keyTakeaways[topicKey]} />
+            )}
           </div>
-          {course.keyTakeaways[topicKey] && (
-            <KeyTakeaways takeaways={course.keyTakeaways[topicKey]} />
-          )}
-        </div>
-      ))}
+        );
+      })}
 
       {/* Begin Exam CTA */}
       <button

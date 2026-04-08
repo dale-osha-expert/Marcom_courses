@@ -3,7 +3,7 @@
 // MARCOM ID: 368 | OSHA 1926 Subpart K (Electrical)
 // ---------------------------------------------------------------------------
 
-import { Course, FaqItem } from "../types";
+import { Course, FaqItem, TopicVisuals } from "../types";
 
 const questions: Course["questions"] = [
   // ── Electrical Hazards & OSHA Standards ──────────────────────────────────
@@ -397,6 +397,51 @@ const faq: FaqItem[] = [
   },
 ];
 
+const visuals: Record<string, TopicVisuals> = {
+  "electrical-hazards-osha": {
+    stats: [
+      { value: "100+", label: "Deaths per year", detail: "Construction workers killed by electricity" },
+      { value: "50%+", label: "Of all electrical injuries", detail: "Suffered by construction workers" },
+    ],
+  },
+  "power-lines": {
+    stats: [
+      { value: "10 ft", label: "Minimum distance", detail: "For lines up to 50,000 volts" },
+    ],
+    warnings: [
+      "ALWAYS assume overhead power lines are energized — even if reported as shut off.",
+    ],
+  },
+  "tools-cords": {
+    warnings: [
+      "Never use a damaged tool — remove it from service immediately and tag it.",
+      "Never remove or bypass the third (grounding) prong on a plug.",
+    ],
+  },
+  "grounding-gfci": {
+    stats: [
+      { value: "1/40 sec", label: "GFCI response time", detail: "Fast enough to prevent fatal shock" },
+      { value: "120V", label: "GFCI required", detail: "All 15- & 20-amp temporary receptacles" },
+    ],
+  },
+  "lockout-tagout": {
+    steps: {
+      title: "LOTO Procedure",
+      items: [
+        { step: 1, title: "Identify all energy sources" },
+        { step: 2, title: "Notify affected employees" },
+        { step: 3, title: "Shut off the energy source" },
+        { step: 4, title: "Isolate the energy source" },
+        { step: 5, title: "Apply your personal lock and tag" },
+        { step: 6, title: "Verify isolation — attempt to operate equipment" },
+      ],
+    },
+    warnings: [
+      "Only the worker who applied the lock is authorized to remove it.",
+    ],
+  },
+};
+
 export const electrocutionHazardsPart1Course: Course = {
   id: "368",
   slug: "con_368_int_en",
@@ -422,4 +467,5 @@ export const electrocutionHazardsPart1Course: Course = {
   keyTakeaways,
   faq,
   topicDisplayNames,
+  visuals,
 };

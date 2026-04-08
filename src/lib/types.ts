@@ -52,6 +52,26 @@ export interface FaqItem {
   answer: string;
 }
 
+/** An infographic stat card */
+export interface StatCard {
+  value: string;
+  label: string;
+  detail?: string;
+}
+
+/** A numbered process step */
+export interface ProcessStep {
+  step: number;
+  title: string;
+}
+
+/** Visual elements for a single topic */
+export interface TopicVisuals {
+  stats?: StatCard[];
+  steps?: { title: string; items: ProcessStep[] };
+  warnings?: string[];
+}
+
 /** A full course definition */
 export interface Course {
   id: string;
@@ -73,4 +93,6 @@ export interface Course {
   faq: FaqItem[];
   /** Human-readable display names for topic keys */
   topicDisplayNames?: Record<string, string>;
+  /** Visual elements (stat cards, step processes, warnings) keyed by topic */
+  visuals?: Record<string, TopicVisuals>;
 }
