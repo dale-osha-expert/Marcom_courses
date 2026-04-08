@@ -59,6 +59,18 @@ export interface StatCard {
   detail?: string;
 }
 
+/** A stat card enriched with live government data source metadata */
+export interface LiveStat extends StatCard {
+  year: number;
+  source: string;
+}
+
+/** Response shape from /api/safety-stats */
+export interface SafetyStatsResponse {
+  stats: LiveStat[];
+  fetchedAt: string;
+}
+
 /** A numbered process step */
 export interface ProcessStep {
   step: number;

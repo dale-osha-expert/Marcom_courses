@@ -4,8 +4,12 @@ import { Course } from "@/lib/types";
 import { renderLesson } from "@/lib/renderLesson";
 import KeyTakeaways from "./KeyTakeaways";
 import StatCards from "./StatCards";
+import LiveStatCards from "./LiveStatCards";
 import StepProcess from "./StepProcess";
 import WarningCallout from "./WarningCallout";
+
+/** Topics whose stat cards are replaced with live government API data */
+const LIVE_STAT_TOPICS = new Set(["electrical-hazards-osha"]);
 
 interface CourseIntroProps {
   course: Course;
@@ -78,8 +82,10 @@ export default function CourseIntro({ course, onStartQuiz }: CourseIntroProps) {
                 />
               ))}
             </div>
-            {topicVisuals?.stats && (
-              <StatCards stats={topicVisuals.stats} />
+            {LIVE_STAT_TOPICS.has(topicKey) ? (
+              <LiveStatCards fallbackStats={topicVisuals?.stats ?? []} />
+            ) : (
+              topicVisuals?.stats && <StatCards stats={topicVisuals.stats} />
             )}
             {topicVisuals?.steps && (
               <StepProcess
