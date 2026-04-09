@@ -70,21 +70,6 @@ const questions: Course["questions"] = [
   {
     id: 5,
     topic: "power-lines",
-    difficulty: "medium",
-    questionText:
-      "Which OSHA regulation governs power line safety for equipment operations up to 350 kV on construction sites?",
-    options: [
-      { id: "a", text: "1926.403" },
-      { id: "b", text: "1926.416" },
-      { id: "c", text: "1926.1408" },
-      { id: "d", text: "1926.404" },
-    ],
-    correctOptionId: "c",
-    oshaClause: "1926.1408(h)",
-  },
-  {
-    id: 6,
-    topic: "power-lines",
     difficulty: "hard",
     questionText:
       "Before beginning any work near overhead power lines, what is the FIRST step an employer must take according to OSHA 1926.1408?",
@@ -100,7 +85,7 @@ const questions: Course["questions"] = [
 
   // ── Tools, Extension Cords & Receptacles ─────────────────────────────────
   {
-    id: 7,
+    id: 6,
     topic: "tools-cords",
     difficulty: "easy",
     questionText:
@@ -115,7 +100,7 @@ const questions: Course["questions"] = [
     oshaClause: "1926.416(a)",
   },
   {
-    id: 8,
+    id: 7,
     topic: "tools-cords",
     difficulty: "medium",
     questionText:
@@ -129,25 +114,10 @@ const questions: Course["questions"] = [
     correctOptionId: "b",
     oshaClause: "1926.405",
   },
-  {
-    id: 9,
-    topic: "tools-cords",
-    difficulty: "medium",
-    questionText:
-      "Which OSHA regulation specifically covers wiring methods, components, and equipment for general use in construction environments?",
-    options: [
-      { id: "a", text: "1926.403" },
-      { id: "b", text: "1926.404" },
-      { id: "c", text: "1926.405" },
-      { id: "d", text: "1926.416" },
-    ],
-    correctOptionId: "c",
-    oshaClause: "1926.405",
-  },
 
   // ── Grounding, Continuity & GFCIs ────────────────────────────────────────
   {
-    id: 10,
+    id: 8,
     topic: "grounding-gfci",
     difficulty: "easy",
     questionText: "GFCI stands for:",
@@ -161,7 +131,7 @@ const questions: Course["questions"] = [
     oshaClause: "1926.404",
   },
   {
-    id: 11,
+    id: 9,
     topic: "grounding-gfci",
     difficulty: "medium",
     questionText:
@@ -176,7 +146,7 @@ const questions: Course["questions"] = [
     oshaClause: "1926.404",
   },
   {
-    id: 12,
+    id: 10,
     topic: "grounding-gfci",
     difficulty: "hard",
     questionText:
@@ -193,7 +163,7 @@ const questions: Course["questions"] = [
 
   // ── Lock-Out / Tag-Out ────────────────────────────────────────────────────
   {
-    id: 13,
+    id: 11,
     topic: "lockout-tagout",
     difficulty: "easy",
     questionText:
@@ -208,7 +178,7 @@ const questions: Course["questions"] = [
     oshaClause: "1926 Subpart C",
   },
   {
-    id: 14,
+    id: 12,
     topic: "lockout-tagout",
     difficulty: "medium",
     questionText:
@@ -223,7 +193,7 @@ const questions: Course["questions"] = [
     oshaClause: "1926 Subpart C",
   },
   {
-    id: 15,
+    id: 13,
     topic: "lockout-tagout",
     difficulty: "hard",
     questionText:
@@ -312,17 +282,15 @@ const rephrasedQuestions: Course["rephrasedQuestions"] = {
   2: { id: 102, topic: "electrical-hazards-osha", difficulty: "easy", oshaClause: "1926 Subpart K", questionText: "Which statement best describes electrical incidents on construction sites?", options: [{ id: "a", text: "Most are unavoidable due to the nature of construction work" }, { id: "b", text: "They are rare and not a significant safety concern" }, { id: "c", text: "Most could have been prevented with proper safety measures" }, { id: "d", text: "Only incidents involving overhead lines are preventable" }], correctOptionId: "c" },
   3: { id: 103, topic: "electrical-hazards-osha", difficulty: "medium", oshaClause: "1926 Subpart K", questionText: "Where would you find OSHA's electrical safety requirements specifically for construction sites?", options: [{ id: "a", text: "29 CFR 1910 Subpart S — General Industry Electrical" }, { id: "b", text: "29 CFR 1926 Subpart K — Construction Electrical" }, { id: "c", text: "29 CFR 1926 Subpart P — Excavations" }, { id: "d", text: "29 CFR 1910 Subpart Z — Toxic Substances" }], correctOptionId: "b" },
   4: { id: 104, topic: "power-lines", difficulty: "easy", oshaClause: "1926.1408(h)", questionText: "A utility company tells your supervisor that nearby overhead lines have been de-energized. You should:", options: [{ id: "a", text: "Proceed without restriction — de-energized lines pose no hazard" }, { id: "b", text: "Still treat the lines as potentially energized until the utility confirms they are grounded and verified safe" }], correctOptionId: "b" },
-  5: { id: 105, topic: "power-lines", difficulty: "medium", oshaClause: "1926.1408(h)", questionText: "When a crane boom might come near a high-voltage line during construction, which OSHA regulation establishes the required safe approach procedures?", options: [{ id: "a", text: "1926.403 — General electrical requirements" }, { id: "b", text: "1926.416 — Protection of employees" }, { id: "c", text: "1926.1408 — Power line safety for equipment operations" }, { id: "d", text: "1926.951 — Medical services and first aid" }], correctOptionId: "c" },
-  6: { id: 106, topic: "power-lines", difficulty: "hard", oshaClause: "1926.1408(h)", questionText: "To establish the required safe working distance from a nearby overhead power line, what must be determined first?", options: [{ id: "a", text: "The age and condition of the line's insulation" }, { id: "b", text: "The voltage of the power line" }, { id: "c", text: "Whether a utility company observer is present on site" }, { id: "d", text: "The weight and reach of the equipment being used" }], correctOptionId: "b" },
-  7: { id: 107, topic: "tools-cords", difficulty: "easy", oshaClause: "1926.416(a)", questionText: "You find a power drill with a crack in the housing and a slightly frayed cord. You should:", options: [{ id: "a", text: "Use it carefully — minor damage is acceptable for short tasks" }, { id: "b", text: "Remove it from service, tag it as defective, and report it immediately" }, { id: "c", text: "Wrap the cord with electrical tape and continue working" }, { id: "d", text: "Test it at low power to see if it still functions" }], correctOptionId: "b" },
-  8: { id: 108, topic: "tools-cords", difficulty: "medium", oshaClause: "1926.405", questionText: "An outdoor-rated extension cord is unavailable and only an indoor cord is on hand. Using it in a damp outdoor area is:", options: [{ id: "a", text: "Acceptable if the weather appears dry" }, { id: "b", text: "Not permitted — outdoor or wet locations require outdoor-rated cords" }], correctOptionId: "b" },
-  9: { id: 109, topic: "tools-cords", difficulty: "medium", oshaClause: "1926.405", questionText: "OSHA 1926.405 governs which aspect of electrical safety on construction sites?", options: [{ id: "a", text: "Electrical safety training requirements for workers" }, { id: "b", text: "Minimum approach distances to power lines" }, { id: "c", text: "Wiring methods, components, and equipment for general use" }, { id: "d", text: "Lock-out/tag-out procedures" }], correctOptionId: "c" },
-  10: { id: 110, topic: "grounding-gfci", difficulty: "easy", oshaClause: "1926.404", questionText: "A GFCI device protects workers by:", options: [{ id: "a", text: "Preventing circuits from being overloaded by too many tools" }, { id: "b", text: "Detecting a ground fault and cutting power within milliseconds before a fatal shock can occur" }, { id: "c", text: "Providing a backup power source if the main supply fails" }, { id: "d", text: "Regulating voltage to prevent dangerous spikes" }], correctOptionId: "b" },
-  11: { id: 111, topic: "grounding-gfci", difficulty: "medium", oshaClause: "1926.404", questionText: "An ungrounded power tool develops an internal short circuit. What is the likely consequence for the operator?", options: [{ id: "a", text: "The circuit breaker will trip before the operator is harmed" }, { id: "b", text: "Fault current may travel through the operator's body, causing a dangerous or fatal shock" }, { id: "c", text: "The tool will simply stop working without posing an injury risk" }, { id: "d", text: "The GFCI will prevent the fault current from reaching the tool" }], correctOptionId: "b" },
-  12: { id: 112, topic: "grounding-gfci", difficulty: "hard", oshaClause: "1926.404", questionText: "On a construction site, a temporary outlet is installed to run power tools during framing work. Under OSHA 1926.404, this outlet:", options: [{ id: "a", text: "Does not require GFCI protection since it is only temporary" }, { id: "b", text: "Requires GFCI protection since it is not part of the building's permanent wiring" }, { id: "c", text: "Requires GFCI only if it is located outdoors" }, { id: "d", text: "Requires GFCI only for three-phase circuits" }], correctOptionId: "b" },
-  13: { id: 113, topic: "lockout-tagout", difficulty: "easy", oshaClause: "1926 Subpart C", questionText: "A maintenance technician is replacing a faulty switch inside an electrical panel. The greatest hazard they face is:", options: [{ id: "a", text: "Burns from an arc flash at the moment the switch is removed" }, { id: "b", text: "Someone else accidentally re-energizing the panel while they are working on it" }, { id: "c", text: "Dropped tools striking the panel and causing sparks" }, { id: "d", text: "Voltage spikes from nearby energized equipment" }], correctOptionId: "b" },
-  14: { id: 114, topic: "lockout-tagout", difficulty: "medium", oshaClause: "1926 Subpart C", questionText: "An electrician needs to replace a breaker. The correct approach is to:", options: [{ id: "a", text: "Work quickly and carefully while the panel remains energized" }, { id: "b", text: "De-energize the circuit, apply a personal lock and tag, verify zero energy, then begin work" }, { id: "c", text: "Have a coworker watch and warn of any hazards while you work" }, { id: "d", text: "Use insulated gloves and work on the energized panel" }], correctOptionId: "b" },
-  15: { id: 115, topic: "lockout-tagout", difficulty: "hard", oshaClause: "1926 Subpart C", questionText: "A second-shift worker finds a lockout device left by a first-shift worker who has already gone home. Equipment is urgently needed. The worker should:", options: [{ id: "a", text: "Remove the lock — the original worker is no longer present" }, { id: "b", text: "Ask the supervisor to remove the lock using their authority" }, { id: "c", text: "Follow the facility's established absent-worker procedure, which requires management authorization and verification that work is complete" }, { id: "d", text: "Cut the lock off to restore production" }], correctOptionId: "c" },
+  5: { id: 105, topic: "power-lines", difficulty: "hard", oshaClause: "1926.1408(h)", questionText: "To establish the required safe working distance from a nearby overhead power line, what must be determined first?", options: [{ id: "a", text: "The age and condition of the line's insulation" }, { id: "b", text: "The voltage of the power line" }, { id: "c", text: "Whether a utility company observer is present on site" }, { id: "d", text: "The weight and reach of the equipment being used" }], correctOptionId: "b" },
+  6: { id: 106, topic: "tools-cords", difficulty: "easy", oshaClause: "1926.416(a)", questionText: "You find a power drill with a crack in the housing and a slightly frayed cord. You should:", options: [{ id: "a", text: "Use it carefully — minor damage is acceptable for short tasks" }, { id: "b", text: "Remove it from service, tag it as defective, and report it immediately" }, { id: "c", text: "Wrap the cord with electrical tape and continue working" }, { id: "d", text: "Test it at low power to see if it still functions" }], correctOptionId: "b" },
+  7: { id: 107, topic: "tools-cords", difficulty: "medium", oshaClause: "1926.405", questionText: "An outdoor-rated extension cord is unavailable and only an indoor cord is on hand. Using it in a damp outdoor area is:", options: [{ id: "a", text: "Acceptable if the weather appears dry" }, { id: "b", text: "Not permitted — outdoor or wet locations require outdoor-rated cords" }], correctOptionId: "b" },
+  8: { id: 108, topic: "grounding-gfci", difficulty: "easy", oshaClause: "1926.404", questionText: "A GFCI device protects workers by:", options: [{ id: "a", text: "Preventing circuits from being overloaded by too many tools" }, { id: "b", text: "Detecting a ground fault and cutting power within milliseconds before a fatal shock can occur" }, { id: "c", text: "Providing a backup power source if the main supply fails" }, { id: "d", text: "Regulating voltage to prevent dangerous spikes" }], correctOptionId: "b" },
+  9: { id: 109, topic: "grounding-gfci", difficulty: "medium", oshaClause: "1926.404", questionText: "An ungrounded power tool develops an internal short circuit. What is the likely consequence for the operator?", options: [{ id: "a", text: "The circuit breaker will trip before the operator is harmed" }, { id: "b", text: "Fault current may travel through the operator's body, causing a dangerous or fatal shock" }, { id: "c", text: "The tool will simply stop working without posing an injury risk" }, { id: "d", text: "The GFCI will prevent the fault current from reaching the tool" }], correctOptionId: "b" },
+  10: { id: 110, topic: "grounding-gfci", difficulty: "hard", oshaClause: "1926.404", questionText: "On a construction site, a temporary outlet is installed to run power tools during framing work. Under OSHA 1926.404, this outlet:", options: [{ id: "a", text: "Does not require GFCI protection since it is only temporary" }, { id: "b", text: "Requires GFCI protection since it is not part of the building's permanent wiring" }, { id: "c", text: "Requires GFCI only if it is located outdoors" }, { id: "d", text: "Requires GFCI only for three-phase circuits" }], correctOptionId: "b" },
+  11: { id: 111, topic: "lockout-tagout", difficulty: "easy", oshaClause: "1926 Subpart C", questionText: "A maintenance technician is replacing a faulty switch inside an electrical panel. The greatest hazard they face is:", options: [{ id: "a", text: "Burns from an arc flash at the moment the switch is removed" }, { id: "b", text: "Someone else accidentally re-energizing the panel while they are working on it" }, { id: "c", text: "Dropped tools striking the panel and causing sparks" }, { id: "d", text: "Voltage spikes from nearby energized equipment" }], correctOptionId: "b" },
+  12: { id: 112, topic: "lockout-tagout", difficulty: "medium", oshaClause: "1926 Subpart C", questionText: "An electrician needs to replace a breaker. The correct approach is to:", options: [{ id: "a", text: "Work quickly and carefully while the panel remains energized" }, { id: "b", text: "De-energize the circuit, apply a personal lock and tag, verify zero energy, then begin work" }, { id: "c", text: "Have a coworker watch and warn of any hazards while you work" }, { id: "d", text: "Use insulated gloves and work on the energized panel" }], correctOptionId: "b" },
+  13: { id: 113, topic: "lockout-tagout", difficulty: "hard", oshaClause: "1926 Subpart C", questionText: "A second-shift worker finds a lockout device left by a first-shift worker who has already gone home. Equipment is urgently needed. The worker should:", options: [{ id: "a", text: "Remove the lock — the original worker is no longer present" }, { id: "b", text: "Ask the supervisor to remove the lock using their authority" }, { id: "c", text: "Follow the facility's established absent-worker procedure, which requires management authorization and verification that work is complete" }, { id: "d", text: "Cut the lock off to restore production" }], correctOptionId: "c" },
 };
 
 const topicDisplayNames: Record<string, string> = {
